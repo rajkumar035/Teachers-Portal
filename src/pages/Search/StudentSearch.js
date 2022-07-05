@@ -21,7 +21,7 @@ const StudentSearch = () => {
 
   useEffect(() => {
     if (batch) {
-      const newResults = students.filter((student) => student.batch == batch);
+      const newResults = students.filter((student) => student.batch === batch);
       setSearchResults(newResults);
     }
   }, [batch]);
@@ -90,7 +90,7 @@ const StudentSearch = () => {
             {searchResults.length === 0
               ? students.map((item, index) => (
                   <SearchCard
-                    key={index}
+                    key={item.rollno}
                     image={item.photo}
                     name={item.name}
                     department={item.department}
@@ -101,7 +101,7 @@ const StudentSearch = () => {
                 ))
               : searchResults.map((item, index) => (
                   <SearchCard
-                    key={index}
+                    key={item.rollno}
                     image={item.photo}
                     name={item.name}
                     department={item.department}
